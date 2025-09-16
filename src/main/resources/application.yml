@@ -1,0 +1,47 @@
+spring:
+  application:
+   name: libraryapi
+  output:
+    ansi:
+      enabled: ALWAYS
+  datasource:
+   url: jdbc:postgresql://localhost:5432/library
+   username: postgres
+   password: postgres
+   driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      # ddl-auto: update
+      ddl-auto: none
+    properties:
+     hibernate.format_sql: true
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
+
+logging:
+  file:
+    name: app.log
+  level:
+    root: warn
+    io:
+      github:
+        cursodsousa: trace
+    org:
+      springframework:
+        web: debug
+        security: trace
+
+  # trace
+  # debug
+  # info
+  # warn
+  # error
+
+springdoc:
+  override-with-generic-response: false
