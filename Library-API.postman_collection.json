@@ -1,0 +1,749 @@
+{
+	"info": {
+		"_postman_id": "21f728b6-8a6e-4f25-86f5-26cc46dd31be",
+		"name": "Library-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3776815"
+	},
+	"item": [
+		{
+			"name": "Autores",
+			"item": [
+				{
+					"name": "Salvar",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "maria",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Autor 300\",\r\n    \"dataNascimento\": \"2003-01-01\",\r\n    \"nacionalidade\": \"Brasileira\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/autores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter Detalhes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Autor 1\",\r\n    \"dataNascimento\": \"2000-01-01\",\r\n    \"nacionalidade\": \"Brasileira\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/autores/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autores",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "9b3774eb-aee7-4f8b-9b29-892ce0ee5c7f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filtrar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJjNjQyNjc2MC02YzQ0LTQ1NzktYjMwZS04YTkwMjMwOGM5YjEiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJqb2FvIiwiYXVkIjoibWV1LWNsaWVudCIsIm5iZiI6MTc1NzU0MTk1NywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwIiwiZXhwIjoxNzU3NTQ1NTU3LCJpYXQiOjE3NTc1NDE5NTcsImp0aSI6ImMxYTVlODllLTQ4ZTYtNDY1OS1iOTMyLTg4YzRkYjcyOWI4NyIsImF1dGhvcml0aWVzIjpbIkdFUkVOVEUiXSwiZW1haWwiOiJqb2FvQGdtYWlsLmNvbSJ9.FtHsp4WOHqBKBdjMV8aL50fy7RHYM45pp2lLHNG3Fc4EBGsydJeH6Q0XioGeFe5t8dicqJAXwW13ztTy1c1Qs4opdQKBnIAgWrZs1Q4NL_7RYmIkxj4SXPWCQ-Za3sWuHsRqysT-jr9IDbCPaKQ6npwgvXMyw2zcykl7wqmi2m5uQin7mUMj0mLwEG8kllbZEDNuoqhAlQXUuFCMnt0bBFiyL5moKQvpjoSpnDhsJyFU7DB3WCmg7L68KIIUSph0V90fm6Em6DTeE5lCjxQXWTpPxYn2M1R4IURNM0f-0MkMsMygrvoVdLW1OIX9pCjZXExCmGr3N53JNlQbULckvQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Autor 1\",\r\n    \"dataNascimento\": \"2000-01-01\",\r\n    \"nacionalidade\": \"Brasileira\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/autores?nacionalidade=Brasileira",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autores"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "Autor 1",
+									"disabled": true
+								},
+								{
+									"key": "nacionalidade",
+									"value": "Brasileira"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Autor 1\",\r\n    \"dataNascimento\": \"2000-01-01\",\r\n    \"nacionalidade\": \"Brasileira\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/autores/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autores",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "e08a09d3-0be8-488d-be67-9e4c5531378a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Autor 11\",\r\n    \"dataNascimento\": \"1999-01-01\",\r\n    \"nacionalidade\": \"Brasileira\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/autores/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autores",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "0e3eedf3-d42e-46e3-ae01-2a8ccd652be9"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Livros",
+			"item": [
+				{
+					"name": "Salvar",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "maria",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isbn\": \"978-1-56619-909-4\",\r\n    \"titulo\": \"Terra do Nunca\",\r\n    \"dataPublicacao\": \"2000-01-01\",\r\n    \"genero\": \"ROMANCE\",\r\n    \"preco\": null,\r\n    \"idAutor\": \"dbecd7b9-71e7-4e68-9c16-c547d13b6a13\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/livros",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"livros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isbn\": \"978-1-4028-9462-6\",\r\n    \"titulo\": \"Flores selvagens 3\",\r\n    \"dataPublicacao\": \"2020-01-01\",\r\n    \"genero\": \"ROMANCE\",\r\n    \"preco\": 30,\r\n    \"idAutor\": \"e08a09d3-0be8-488d-be67-9e4c5531378a\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/livros/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"livros",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2e420869-7787-49a9-8bf5-ed179c194a62"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter Detalhes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "gpm",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isbn\": \"978-3-16-148410-0\",\r\n    \"titulo\": \"As viagens\",\r\n    \"dataPublicacao\": \"1980-01-01\",\r\n    \"genero\": \"FICCAO\",\r\n    \"preco\": 10,\r\n    \"idAutor\": \"e08a09d3-0be8-488d-be67-9e4c5531378a\"\r\n\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/livros/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"livros",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "f5f9415e-0532-47e2-a140-93c176238d59"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pesquisa",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJhZTJiN2QxNC1hNWU4LTQ0OTItYTljYi1kNWU5Njk1YTk1ZDkiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJtZXUtY2xpZW50IiwiYXVkIjoibWV1LWNsaWVudCIsIm5iZiI6MTc1NzA4NjM0Mywic2NvcGUiOlsiR0VSRU5URSJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAiLCJleHAiOjE3NTcwODk5NDMsImlhdCI6MTc1NzA4NjM0MywianRpIjoiNjkyZGZjNDUtNGY3OS00ZmVjLThiMzAtMGQ1YzAyYTFkMTI0In0.KlgCC2Q7qb48Y9Y9qM7DXiQhty8WVcIeWZpIfIcn4eAmmcrGw1NyR8_WhxbivLu-am51IkNEATxAsDU3I5tA-iA5Aa6Ad5cJC5NypPSI29LE-KcQl_RKZsUpbRmxaTFrido1soE9FIFqZEicfItfI-0LqqhJEywE067L3pKEZtNe2agQ3USmn1UjTmm168ZRYMB4kSJOr2vQxhB-MSas9PT7PmCnc8gpPlWmfLhtGkRr7Y5p4LaX9oSaCK2YFrsZJ6QUjYELRIg5UMw6n_JgY7AzSEKdF2p3aoQ0G5VwEHK2STsHcgH6g-viCabOkwCmVXewGey7nZ9l-5ErVNM8wg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isbn\": \"978-3-16-148410-0\",\r\n    \"titulo\": \"As viagens\",\r\n    \"dataPublicacao\": \"1980-01-01\",\r\n    \"genero\": \"FICCAO\",\r\n    \"preco\": 10,\r\n    \"idAutor\": \"e08a09d3-0be8-488d-be67-9e4c5531378a\"\r\n\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/livros?pagina=2&tamanho-pagina=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"livros"
+							],
+							"query": [
+								{
+									"key": "isbn",
+									"value": "978-0-306-40615-7",
+									"disabled": true
+								},
+								{
+									"key": "titulo",
+									"value": "As",
+									"disabled": true
+								},
+								{
+									"key": "nome-autor",
+									"value": "Autor 3",
+									"disabled": true
+								},
+								{
+									"key": "genero",
+									"value": "FICCAO",
+									"disabled": true
+								},
+								{
+									"key": "ano-publicacao",
+									"value": "1980",
+									"disabled": true
+								},
+								{
+									"key": "pagina",
+									"value": "2"
+								},
+								{
+									"key": "tamanho-pagina",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isbn\": \"978-3-16-148410-0\",\r\n    \"titulo\": \"As viagens\",\r\n    \"dataPublicacao\": \"1980-01-01\",\r\n    \"genero\": \"FICCAO\",\r\n    \"preco\": 10,\r\n    \"idAutor\": \"e08a09d3-0be8-488d-be67-9e4c5531378a\"\r\n\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/livros/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"livros",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "b961c540-21f3-4536-a5bb-e13def07c9b1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuários",
+			"item": [
+				{
+					"name": "Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"gabriel\",\r\n    \"senha\" : \"123\",\r\n    \"email\": \"andrewsseven@gmail.com\",\r\n    \"roles\": [\r\n        \"GERENTE\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clients",
+			"item": [
+				{
+					"name": "Registrar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiI2ZGRiOTA2Yi05MzI1LTQwYTEtYjNkNC01MzViYTEzN2ExMzQiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJqb2FvIiwiYXVkIjoibWV1LWNsaWVudCIsIm5iZiI6MTc1NzY4NjMzOCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwIiwiZXhwIjoxNzU3Njg5OTM4LCJpYXQiOjE3NTc2ODYzMzgsImp0aSI6ImM1N2Y0NmE0LWU0OGQtNDE2Ny1iOTUzLTMzNWM3OGU4ZmYxMCIsImF1dGhvcml0aWVzIjpbIkdFUkVOVEUiXSwiZW1haWwiOiJqb2FvQGdtYWlsLmNvbSJ9.l-3Rb-I7CaACY-mRX3jiRvYT6JhOe_Xwros6kcBxEAma9RJ4iYA4Yx72iLtus-RbVvaJ_7Y51BXZszK3u_hspO-U9gHmM7zvzRgZA-Zb3nuzeWlz6l75sc3jUB0-RB1DbGebrUkwW7Fr8EL_-gH1wL3WmzbLirt23SX-wfe7BUqFt1GkFrgUXy80bFsA5BoSZEfSMWu7OP8Sp2VwYFNifecIwhZOqH7zAO7k2rdgfkbIPNVH4H7DonjkaFyII9UZfIOQBtKkfYgDlthKo9-9ktDxc7Sq7onZTf5UOUuXlqrqnzMgs84h8QjP5WO-o2iOZKjff4bSXBzdgR9cETkjXg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": \"postman-client\",\r\n    \"clientSecret\": \"postman-secret\",\r\n    \"redirectURI\": \"http://localhost:8080/autenticado\",\r\n    \"scope\": \"GERENTE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "OAuth2",
+			"item": [
+				{
+					"name": "Client Credentials - postman",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "client_authentication",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "GERENTE",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "client-secret",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "meu-client",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "http://localhost:8080/oauth2/token",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Authorizarion Code - Postman",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "http://localhost:8080/oauth2/authorize",
+									"type": "string"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "http://localhost:8080/authorized",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "client_authentication",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "client-secret",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "meu-client",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "http://localhost:8080/oauth2/token",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Authorizarion Code - Manual",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "http://localhost:8080/oauth2/authorize",
+									"type": "string"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "http://localhost:8080/authorized",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "client_authentication",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "client-secret",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "meu-client",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "http://localhost:8080/oauth2/token",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Client Credentials - manual",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic bWV1LWNsaWVudDpjbGllbnQtc2VjcmV0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "GERENTE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/oauth2/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Resource Server Test",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJraWQiOiI4YWEyYThjMC02YzFjLTQwNjAtOGFkOC1lMzMwYWY0YWQ3NWIiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJqb2FvIiwiYXVkIjoibWV1LWNsaWVudCIsIm5iZiI6MTc1NzEwMzM1MSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwIiwiZXhwIjoxNzU3MTA2OTUxLCJpYXQiOjE3NTcxMDMzNTEsImp0aSI6ImIyZDZiZTA2LTZkY2YtNDc3OC05YmI0LTY4NDYxYWIzOGVlMCIsImF1dGhvcml0aWVzIjpbIkdFUkVOVEUiXSwiZW1haWwiOiJqb2FvQGdtYWlsLmNvbSJ9.Lfb-7dv_6n_RN6kURFhePzZr26iXAJNSCekfiQQ1-QVrLTIWG3mICjVC96n92Z6QTvPAnln1qZYM2qTzhXTrRcG0OopeVlR4ILEgfm2ucCsczJw1z15wPIUJB9H30sCgN52cOcUcP4GBXfd8Pi1j6PMXETizaJnGgXZIgY-c_TrI0-A1orFHm-tVctDWoVoglfgWJkFtUCky3URu7L-SKl2N2yx-CO3CmeGpP7mJk_Pg1axTroxmyJgzkVKtHev0S2wmKQqJE7YJjyPEF1nFUAjfMVpcmeltWcPMaJ7Gz6JYo2afdMsH8fciu4uLxaLo-uupjpFwjSWluSk60rVOYQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8081/private",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"private"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
