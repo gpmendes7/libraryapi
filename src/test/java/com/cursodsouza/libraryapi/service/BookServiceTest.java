@@ -3,7 +3,6 @@ package com.cursodsouza.libraryapi.service;
 import com.cursodsouza.libraryapi.exception.BusinessException;
 import com.cursodsouza.libraryapi.model.entity.Book;
 import com.cursodsouza.libraryapi.model.repository.BookRepository;
-import com.cursodsouza.libraryapi.model.repository.BookRepositoryTest;
 import com.cursodsouza.libraryapi.service.impl.BookServiceImpl;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
