@@ -1,7 +1,6 @@
 package com.cursodsouza.libraryapi.model.repository;
 
 import com.cursodsouza.libraryapi.model.entity.Book;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -10,6 +9,10 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import java.util.Optional;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(SpringExtension.class)
 @ActiveProfiles("test")
@@ -27,18 +30,22 @@ public class BookRepositoryTest {
     public void returnTrueWhenIsbnExists() {
         // cenario
         String isbn = "123";
-        Book book = Book.builder().title("Aventuras").author("Fulano").isbn(isbn).build();
+        Book book = createNewBook(isbn);
         entityManager.persist(book);
 
         // execucao
         boolean exists = repository.existsByIsbn(isbn);
 
         // verificacao
-        Assertions.assertThat(exists).isTrue();
+        assertThat(exists).isTrue();
+    }
+
+    private static Book createNewBook(String isbn) {
+        return Book.builder().title("Aventuras").author("Fulano").isbn(isbn).build();
     }
 
     @Test
-    @DisplayName("Deve retornar falso quando não existir um livro na base com o isbn infomado")
+    @DisplayName("Deve retornar falso quando não existir um livro na base com o isbn informado")
     public void returnFalseWhenIsbnDoesntExists() {
         // cenario
         String isbn = "123";
@@ -47,7 +54,22 @@ public class BookRepositoryTest {
         boolean exists = repository.existsByIsbn(isbn);
 
         // verificacao
-        Assertions.assertThat(exists).isFalse();
+        assertThat(exists).isFalse();
     }
+
+    @Test
+    @DisplayName("Deve obter um livro por id.")
+    public void findByTest() {
+        // cenario
+        Book book = createNewBook("123");
+        entityManager.persist(book);
+
+        // execucao
+        Optional<Book> foundBook = repository.findById(book.getId());
+
+        // verificacoes
+        assertThat(foundBook.isPresent()).isTrue();
+    }
+
 
 }
